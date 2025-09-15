@@ -1,6 +1,7 @@
 # Import Libraries
-import pandas as pd
+import os
 import numpy as np
+import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
@@ -17,7 +18,10 @@ print("=" * 50)
 print("STEP 1: DATA LOADING & INITIAL INSPECTION")
 print("=" * 50)
 
-train_df=pd.read_csv(r'C:\Users\fotam\OneDrive\Υπολογιστής\Exploratory_Data_Analysis\data\train.csv')
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # script folder
+DATA_PATH = os.path.join(BASE_DIR, "..", "data", "train.csv")
+train_df = pd.read_csv(DATA_PATH)
 print(f"\nFirst 15 rows: \n {train_df.head(15)}")
 print(f"\nDataset shape: \n {train_df.shape} ")
 print(f"\nMissing values per column: \n{train_df.isnull().sum()}")
